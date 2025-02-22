@@ -149,7 +149,7 @@ def run_speed_test(server_id: Optional[int] = None):
         logging.error(f"Error running speed test: {str(e)}")
         return False
 
-def setup_schedule(interval_minutes=10, server_id: Optional[int] = None):
+def setup_schedule(interval_minutes=60, server_id: Optional[int] = None):
     """
     Set up the schedule to run the speed test at specified intervals
     """
@@ -189,7 +189,7 @@ def load_existing_data():
     except FileNotFoundError:
         pass
 
-def main(server_id: Optional[int] = 38854, interval_minutes: int = 60):
+def main(server_id: Optional[int] = 38854, interval_minutes: int = 10):
     # Create CSV file with headers if it doesn't exist
     try:
         with open('speed_test_results.csv', 'x', newline='') as f:
