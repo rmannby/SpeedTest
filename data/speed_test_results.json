@@ -1,0 +1,16 @@
+{
+  "speed_tests": [
+    {
+      "timestamp": "2025-02-23 12:26",
+      "download_speed": 402.72,
+      "upload_speed": 346.84,
+      "ping": 10.9,
+      "server": {
+        "host": "speedtest-sto.retn.net:8080",
+        "name": "Stockholm",
+        "country": "Sweden",
+        "sponsor": "RETN"
+      }
+    }
+  ]
+}
