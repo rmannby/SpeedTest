@@ -11,6 +11,42 @@
         "country": "Sweden",
         "sponsor": "RETN"
       }
+    },
+    {
+      "timestamp": "2025-02-23 13:08",
+      "download_speed": 833.85,
+      "upload_speed": 601.31,
+      "ping": 5.8,
+      "server": {
+        "host": "speedtest-sto.retn.net:8080",
+        "name": "Stockholm",
+        "country": "Sweden",
+        "sponsor": "RETN"
+      }
+    },
+    {
+      "timestamp": "2025-02-24 11:17",
+      "download_speed": 168.69,
+      "upload_speed": 99.83,
+      "ping": 16.6,
+      "server": {
+        "host": "se.altushost.com:8080",
+        "name": "Stockholm",
+        "country": "Sweden",
+        "sponsor": "AltusHost B.V."
+      }
+    },
+    {
+      "timestamp": "2025-02-24 11:28",
+      "download_speed": 116.36,
+      "upload_speed": 102.48,
+      "ping": 25.7,
+      "server": {
+        "host": "se.altushost.com:8080",
+        "name": "Stockholm",
+        "country": "Sweden",
+        "sponsor": "AltusHost B.V."
+      }
     }
   ]
 }
