@@ -92,7 +92,3 @@ Logs are stored in the `logs/` directory, which can be helpful for troubleshooti
 ## 📝 License
 
 [MIT License](LICENSE)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
