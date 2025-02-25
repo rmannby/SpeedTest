@@ -47,6 +47,18 @@
         "country": "Sweden",
         "sponsor": "AltusHost B.V."
       }
+    },
+    {
+      "timestamp": "2025-02-25 11:15",
+      "download_speed": 172.49,
+      "upload_speed": 117.69,
+      "ping": 15.7,
+      "server": {
+        "host": "fd.sunet.se:8080",
+        "name": "Stockholm",
+        "country": "Sweden",
+        "sponsor": "SUNET"
+      }
     }
   ]
 }
