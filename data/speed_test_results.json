@@ -1,63 +1,27 @@
 {
   "speed_tests": [
     {
-      "timestamp": "2025-02-23 12:26",
-      "download_speed": 402.72,
-      "upload_speed": 346.84,
-      "ping": 10.9,
+      "timestamp": "2025-02-26 19:05",
+      "download_speed": 555.2,
+      "upload_speed": 817.43,
+      "ping": 5.5,
       "server": {
-        "host": "speedtest-sto.retn.net:8080",
-        "name": "Stockholm",
+        "host": "speedtest.keff.org:8080",
+        "name": "Kista",
         "country": "Sweden",
-        "sponsor": "RETN"
+        "sponsor": "KeFF Networks"
       }
     },
     {
-      "timestamp": "2025-02-23 13:08",
-      "download_speed": 833.85,
-      "upload_speed": 601.31,
-      "ping": 5.8,
+      "timestamp": "2025-02-26 19:15",
+      "download_speed": 696.95,
+      "upload_speed": 819.81,
+      "ping": 5.3,
       "server": {
-        "host": "speedtest-sto.retn.net:8080",
-        "name": "Stockholm",
+        "host": "speedtest.keff.org:8080",
+        "name": "Kista",
         "country": "Sweden",
-        "sponsor": "RETN"
-      }
-    },
-    {
-      "timestamp": "2025-02-24 11:17",
-      "download_speed": 168.69,
-      "upload_speed": 99.83,
-      "ping": 16.6,
-      "server": {
-        "host": "se.altushost.com:8080",
-        "name": "Stockholm",
-        "country": "Sweden",
-        "sponsor": "AltusHost B.V."
-      }
-    },
-    {
-      "timestamp": "2025-02-24 11:28",
-      "download_speed": 116.36,
-      "upload_speed": 102.48,
-      "ping": 25.7,
-      "server": {
-        "host": "se.altushost.com:8080",
-        "name": "Stockholm",
-        "country": "Sweden",
-        "sponsor": "AltusHost B.V."
-      }
-    },
-    {
-      "timestamp": "2025-02-25 11:15",
-      "download_speed": 172.49,
-      "upload_speed": 117.69,
-      "ping": 15.7,
-      "server": {
-        "host": "fd.sunet.se:8080",
-        "name": "Stockholm",
-        "country": "Sweden",
-        "sponsor": "SUNET"
+        "sponsor": "KeFF Networks"
       }
     }
   ]

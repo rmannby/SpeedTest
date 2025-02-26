@@ -2,11 +2,11 @@
 import sys
 import tkinter as tk
 from tkinter import ttk, messagebox
-import speedtest
 import threading
-from typing import Dict, Tuple
-import logging
 import time
+from typing import Dict, Tuple
+import speedtest
+import logging
 from pathlib import Path
 
 
@@ -67,31 +67,41 @@ class SpeedTestGUI:
         server_frame = ttk.LabelFrame(main_frame, text="Server Selection", padding="5")
         server_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
 
+        # Server list header with refresh button
+        server_header = ttk.Frame(server_frame)
+        server_header.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E))
+
+        ttk.Label(server_header, text="Server List:").pack(side=tk.LEFT)
+        self.refresh_button = ttk.Button(
+            server_header, text="Refresh Servers", command=self.refresh_servers
+        )
+        self.refresh_button.pack(side=tk.RIGHT)
+
         # Search field
-        ttk.Label(server_frame, text="Search:").grid(row=0, column=0, sticky=tk.W)
+        ttk.Label(server_frame, text="Search:").grid(row=1, column=0, sticky=tk.W)
         self.search_var = tk.StringVar()
         self.search_entry = ttk.Entry(server_frame, textvariable=self.search_var)
-        self.search_entry.grid(row=0, column=1, sticky=(tk.W, tk.E))
+        self.search_entry.grid(row=1, column=1, sticky=(tk.W, tk.E))
         self.search_entry.bind("<KeyRelease>", self.filter_servers)
 
         # Server selection
         ttk.Label(server_frame, text="Select Server:").grid(
-            row=1, column=0, sticky=tk.W
+            row=2, column=0, sticky=tk.W
         )
         self.server_dropdown = ttk.Combobox(
             server_frame, textvariable=self.server_var, state="readonly"
         )
-        self.server_dropdown.grid(row=1, column=1, sticky=(tk.W, tk.E))
+        self.server_dropdown.grid(row=2, column=1, sticky=(tk.W, tk.E))
 
         # Country filter
         ttk.Label(server_frame, text="Filter by Country:").grid(
-            row=2, column=0, sticky=tk.W
+            row=3, column=0, sticky=tk.W
         )
         self.country_var = tk.StringVar()
         self.country_dropdown = ttk.Combobox(
             server_frame, textvariable=self.country_var, state="readonly"
         )
-        self.country_dropdown.grid(row=2, column=1, sticky=(tk.W, tk.E))
+        self.country_dropdown.grid(row=3, column=1, sticky=(tk.W, tk.E))
         self.country_dropdown.bind("<<ComboboxSelected>>", self.filter_by_country)
 
         # Manual server entry
@@ -130,7 +140,7 @@ class SpeedTestGUI:
         # Progress indicator
         self.progress = ttk.Progressbar(main_frame, mode="indeterminate")
         self.progress.grid(row=8, column=0, columnspan=2, sticky=(tk.W, tk.E))
-    
+
     def filter_servers(self, event=None):
         """Filter servers based on search text"""
         search_text = self.search_var.get().lower()
@@ -161,6 +171,14 @@ class SpeedTestGUI:
 
         if self.server_dropdown["values"]:
             self.server_var.set(self.server_dropdown["values"][0])
+
+    def refresh_servers(self):
+        """Manually refresh the server list"""
+        if not self.loading:
+            self.retry_count = 0
+            self.refresh_button.config(state="disabled")
+            self.load_servers()
+            self.root.after(2000, lambda: self.refresh_button.config(state="normal"))
 
     def load_servers(self):
         """Load available speedtest servers"""
@@ -198,6 +216,12 @@ class SpeedTestGUI:
                 self.country_dropdown["values"] = country_options
                 self.country_var.set("All Countries")
 
+                logging.info(f"Successfully loaded {len(self.all_servers)} servers")
+                messagebox.showinfo(
+                    "Server List Updated",
+                    f"Successfully loaded {len(self.all_servers)} servers",
+                )
+
             except Exception as e:
                 if self.retry_count < self.max_retries:
                     self.retry_count += 1
@@ -216,8 +240,6 @@ class SpeedTestGUI:
 
         # Start loading in a separate thread
         threading.Thread(target=_load, daemon=True).start()
-        
-    
 
     def start_monitor(self):
         """Start the speed test monitor with selected output formats"""
@@ -292,5 +314,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
